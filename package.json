@@ -18,7 +18,7 @@
   "license": "ISC",
   "husky": {
     "hooks": {
-      "pre-commit": "npm run prettier"
+      "pre-commit": "npm run prettier && npm run solhint"
     }
   },
   "dependencies": {
