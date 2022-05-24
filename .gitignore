@@ -4,3 +4,4 @@
 **/.deps
 **/contracts/artifacts
 **/.env
+**/.vscode
