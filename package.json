@@ -7,8 +7,8 @@
     "start": "npm run prettier && npm run solhint && npx truffle compile",
     "migrate": "npm run prettier && npm run solhint && npx truffle migrate",
     "coverage": "npx truffle run coverage",
-    "solhint": "solhint -f table contracts/**/*.sol",
-    "prettier": "prettier --write contracts/**/*.sol"
+    "solhint": "npx solhint -f table contracts/**/*.sol",
+    "prettier": "npx prettier --write contracts/**/*.sol"
   },
   "repository": {
     "type": "git",
@@ -16,11 +16,6 @@
   },
   "author": "",
   "license": "ISC",
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run prettier && npm run solhint"
-    }
-  },
   "dependencies": {
     "@babel/core": "^7.18.0",
     "@babel/polyfill": "^7.12.1",
