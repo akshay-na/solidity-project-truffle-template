@@ -46,7 +46,7 @@ module.exports = {
 
         SmartBCH_mainnet: {
             provider: () =>
-                new HDWalletProvider(mnemonic, process.env.SMARTBSCH_MAINNET),
+                new HDWalletProvider(mnemonic, process.env.SMARTBCH_MAINNET),
             network_id: 10000, // SmartBCH's id
             confirmations: 2, // # of confs to wait between deployments. (default: 0)
             timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
@@ -57,7 +57,7 @@ module.exports = {
 
         Polygon_mainnet: {
             provider: () =>
-                new HDWalletProvider(mnemonic, process.env.PLYGON_MAINNET),
+                new HDWalletProvider(mnemonic, process.env.POLYGON_MAINNET),
             network_id: 137, // Polygon's id
             confirmations: 2, // # of confs to wait between deployments. (default: 0)
             timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
@@ -95,10 +95,7 @@ module.exports = {
 
         SmartBCH_testnet: {
             provider: () =>
-                new HDWalletProvider(
-                    mnemonic,
-                    process.env.SMARTBCH_TESTNET_NOWNODE
-                ),
+                new HDWalletProvider(mnemonic, process.env.SMARTBCH_TESTNET),
             network_id: 10001, // SmartBCH's id
             confirmations: 2, // # of confs to wait between deployments. (default: 0)
             timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
@@ -109,10 +106,7 @@ module.exports = {
 
         Polygon_testnet: {
             provider: () =>
-                new HDWalletProvider(
-                    mnemonic,
-                    process.env.POLYGON_TESTNET_NOWNODE
-                ),
+                new HDWalletProvider(mnemonic, process.env.POLYGON_TESTNET),
             network_id: 80001, // Polygon's id
             confirmations: 2, // # of confs to wait between deployments. (default: 0)
             timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
@@ -129,10 +123,10 @@ module.exports = {
     },
 
     plugins: [
-    "solidity-coverage",
-    "truffle-contract-size",
-    "truffle-plugin-verify",
-  ],
+        "solidity-coverage",
+        "truffle-contract-size",
+        "truffle-plugin-verify"
+    ],
 
     // Set default mocha options here, use special reporters etc.
     mocha: {
