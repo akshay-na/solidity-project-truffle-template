@@ -124,8 +124,15 @@ module.exports = {
 
     api_keys: {
         bscscan: process.env.BSCSCAN_API,
-        etherscan: process.env.ETHSCAN_API
+        etherscan: process.env.ETHSCAN_API,
+        polygonscan: process.env.POLYGON_API
     },
+
+    plugins: [
+    "solidity-coverage",
+    "truffle-contract-size",
+    "truffle-plugin-verify",
+  ],
 
     // Set default mocha options here, use special reporters etc.
     mocha: {
