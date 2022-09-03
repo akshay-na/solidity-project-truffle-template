@@ -7,7 +7,6 @@ contract Example {
     constructor() {
         // Make the deployer of the contract the administrator
         _administrator = msg.sender;
-
     }
 
     function isAdministrator(address user) public view returns (bool) {
