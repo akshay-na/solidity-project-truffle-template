@@ -20,7 +20,7 @@ module.exports = {
             provider: () =>
                 new HDWalletProvider(
                     mnemonic,
-                    process.env.ETH_MAINNET_NOWNODE + process.env.NOWNODES_API
+                    process.env.ETH_MAINNET_NOWNODE + process.env.GETBLOCK_API
                 ),
             network_id: 1, // ETH's id
             confirmations: 2, // # of confs to wait between deployments. (default: 0)
@@ -34,7 +34,7 @@ module.exports = {
             provider: () =>
                 new HDWalletProvider(
                     mnemonic,
-                    process.env.BSC_MAINNET_NOWNODE + process.env.NOWNODES_API
+                    process.env.BSC_MAINNET_NOWNODE + process.env.GETBLOCK_API
                 ),
             network_id: 56, // BSC's id
             confirmations: 2, // # of confs to wait between deployments. (default: 0)
@@ -44,10 +44,14 @@ module.exports = {
             skipDryRun: false // Skip dry run before migrations? (default: false for public nets )
         },
 
-        SmartBCH_mainnet: {
+        Polygon_mainnet: {
             provider: () =>
-                new HDWalletProvider(mnemonic, process.env.SMARTBSCH_MAINNET),
-            network_id: 10000, // SmartBCH's id
+                new HDWalletProvider(
+                    mnemonic,
+                    process.env.POLYGON_MAINNET_GETBLOCK +
+                        process.env.GETBLOCK_API
+                ),
+            network_id: 137, // Polygon's id
             confirmations: 2, // # of confs to wait between deployments. (default: 0)
             timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
             // gas: 3000000, // Limit the gas to x number.
@@ -55,10 +59,29 @@ module.exports = {
             skipDryRun: false // Skip dry run before migrations? (default: false for public nets )
         },
 
-        Polygon_mainnet: {
+        op_mainnet: {
             provider: () =>
-                new HDWalletProvider(mnemonic, process.env.PLYGON_MAINNET),
-            network_id: 137, // Polygon's id
+                new HDWalletProvider(
+                    mnemonic,
+                    process.env.OPTIMISM_MAINNET_GETBLOCK +
+                        process.env.GETBLOCK_API
+                ),
+            network_id: 10, // op's id
+            confirmations: 2, // # of confs to wait between deployments. (default: 0)
+            timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
+            // gas: 3000000, // Limit the gas to x number.
+            gasPrice: 25000000000, // 25 gwei (in wei) (default: 100 gwei)
+            skipDryRun: false // Skip dry run before migrations? (default: false for public nets )
+        },
+
+        ftm_mainnet: {
+            provider: () =>
+                new HDWalletProvider(
+                    mnemonic,
+                    process.env.FHANTOM_MAINNET_GETBLOCK +
+                        process.env.GETBLOCK_API
+                ),
+            network_id: 10, // ftm's id
             confirmations: 2, // # of confs to wait between deployments. (default: 0)
             timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
             // gas: 3000000, // Limit the gas to x number.
@@ -68,11 +91,27 @@ module.exports = {
 
         // Testnets
 
-        ETH_testnet: {
+        ETH_goerli: {
             provider: () =>
                 new HDWalletProvider(
                     mnemonic,
-                    process.env.ETH_TESTNET_NOWNODE + process.env.NOWNODES_API
+                    process.env.ETH_TESTNET_GOERLI_GETBLOCK +
+                        process.env.GETBLOCK_API
+                ),
+            network_id: 5, // ETH's id
+            confirmations: 2, // # of confs to wait between deployments. (default: 0)
+            timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
+            // gas: 3000000, // Limit the gas to x number.
+            gasPrice: 25000000000, // 25 gwei (in wei) (default: 100 gwei)
+            skipDryRun: false // Skip dry run before migrations? (default: false for public nets )
+        },
+
+        ETH_ropsten: {
+            provider: () =>
+                new HDWalletProvider(
+                    mnemonic,
+                    process.env.ETH_TESTNET_ROPSTEN_GETBLOCK +
+                        process.env.GETBLOCK_API
                 ),
             network_id: 3, // ETH's id
             confirmations: 2, // # of confs to wait between deployments. (default: 0)
@@ -82,10 +121,14 @@ module.exports = {
             skipDryRun: false // Skip dry run before migrations? (default: false for public nets )
         },
 
-        BSC_testnet: {
+        ETH_rinkeby: {
             provider: () =>
-                new HDWalletProvider(mnemonic, process.env.BSC_TESTNET_NOWNODE),
-            network_id: 97, // BSC's id
+                new HDWalletProvider(
+                    mnemonic,
+                    process.env.ETH_TESTNET_RINKEBY_GETBLOCK +
+                        process.env.GETBLOCK_API
+                ),
+            network_id: 4, // ETH's id
             confirmations: 2, // # of confs to wait between deployments. (default: 0)
             timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
             // gas: 3000000, // Limit the gas to x number.
@@ -93,13 +136,28 @@ module.exports = {
             skipDryRun: false // Skip dry run before migrations? (default: false for public nets )
         },
 
-        SmartBCH_testnet: {
+        ETH_kovan: {
             provider: () =>
                 new HDWalletProvider(
                     mnemonic,
-                    process.env.SMARTBCH_TESTNET_NOWNODE
+                    process.env.ETH_TESTNET_KOVAN_GETBLOCK +
+                        process.env.GETBLOCK_API
                 ),
-            network_id: 10001, // SmartBCH's id
+            network_id: 42, // ETH's id
+            confirmations: 2, // # of confs to wait between deployments. (default: 0)
+            timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
+            // gas: 3000000, // Limit the gas to x number.
+            gasPrice: 25000000000, // 25 gwei (in wei) (default: 100 gwei)
+            skipDryRun: false // Skip dry run before migrations? (default: false for public nets )
+        },
+
+        BSC_testnet: {
+            provider: () =>
+                new HDWalletProvider(
+                    mnemonic,
+                    process.env.BSC_TESTNET_GETBLOCK + process.env.GETBLOCK_API
+                ),
+            network_id: 97, // BSC's id
             confirmations: 2, // # of confs to wait between deployments. (default: 0)
             timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
             // gas: 3000000, // Limit the gas to x number.
@@ -111,9 +169,25 @@ module.exports = {
             provider: () =>
                 new HDWalletProvider(
                     mnemonic,
-                    process.env.POLYGON_TESTNET_NOWNODE
+                    process.env.POLYGON_TESTNET_GETBLOCK +
+                        process.env.GETBLOCK_API
                 ),
             network_id: 80001, // Polygon's id
+            confirmations: 2, // # of confs to wait between deployments. (default: 0)
+            timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
+            // gas: 3000000, // Limit the gas to x number.
+            gasPrice: 25000000000, // 25 gwei (in wei) (default: 100 gwei)
+            skipDryRun: false // Skip dry run before migrations? (default: false for public nets )
+        },
+
+        op_testnet: {
+            provider: () =>
+                new HDWalletProvider(
+                    mnemonic,
+                    process.env.OPTIMISM_TESTNET_GETBLOCK +
+                        process.env.GETBLOCK_API
+                ),
+            network_id: 69, // op's id
             confirmations: 2, // # of confs to wait between deployments. (default: 0)
             timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
             // gas: 3000000, // Limit the gas to x number.
@@ -129,10 +203,10 @@ module.exports = {
     },
 
     plugins: [
-    "solidity-coverage",
-    "truffle-contract-size",
-    "truffle-plugin-verify",
-  ],
+        "solidity-coverage",
+        "truffle-contract-size",
+        "truffle-plugin-verify"
+    ],
 
     // Set default mocha options here, use special reporters etc.
     mocha: {

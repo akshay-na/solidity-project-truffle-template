@@ -59,21 +59,29 @@ done
 
 case $network in
       "eth")
-         networkURL=$ETH_MAINNET_NOWNODE$NOWNODES_API;;
-      "eth_testnet")
-         networkURL=$ETH_TESTNET_NOWNODE$NOWNODES_API;;
+         networkURL=$ETH_MAINNET_GETBLOCK$GETBLOCK_API;;
+      "eth_ropsten")
+         networkURL=$ETH_TESTNET_ROPSTEN_GETBLOCK$GETBLOCK_API;;
+      "eth_kovan")
+         networkURL=$ETH_TESTNET_KOVAN_GETBLOCK$GETBLOCK_API;;
+      "eth_rinkeby")
+         networkURL=$ETH_TESTNET_RINKEBY_GETBLOCK$GETBLOCK_API;;
+      "eth_goerli")
+         networkURL=$ETH_TESTNET_GOERLI_GETBLOCK$GETBLOCK_API;;
       "bsc")
-         networkURL=$BSC_MAINNET_NOWNODE$NOWNODES_API;;
+         networkURL=$BSC_MAINNET_GETBLOCK$GETBLOCK_API;;
       "bsc_testnet")
-         networkURL=$BSC_TESTNET_NOWNODE$NOWNODES_API;;
+         networkURL=$BSC_TESTNET_GETBLOCK$GETBLOCK_API;;
       "polygon")
-         networkURL=$POLYGON_MAINNET;;
+         networkURL=$POLYGON_MAINNET_GETBLOCK$GETBLOCK_API;;
       "polygon_testnet")
-         networkURL=$POLYGON_TESTNET;;
-      "smartbch")
-         networkURL=$SMARTBCH_MAINNET;;
-      "smartbch_testnet")
-         networkURL=$SMARTBCH_TESTNET;;
+         networkURL=$POLYGON_TESTNET_GETBLOCK$GETBLOCK_API;;
+      "op")
+         networkURL=$POLYGON_MAINNET_GETBLOCK$GETBLOCK_API;;
+      "op_testnet")
+         networkURL=$OPTIMISM_MAINNET_GETBLOCK$GETBLOCK_API;;
+      "ftm")
+      networkURL=$FHANTOM_MAINNET_GETBLOCK$GETBLOCK_API;;
 esac
 
 if [ $fork ] && [ $unlock ]

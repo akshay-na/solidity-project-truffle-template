@@ -4,5 +4,3 @@
 added_files=$(git diff --name-only --cached)
 
 npm run prettier && npm run solhint
-
-git add ${added_files}
